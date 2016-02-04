@@ -1,0 +1,17 @@
+{
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "eol-last": [0],
+    "comma-dangle": [2, "never"],
+    "indent": [2, 2],
+    "jsx-quotes": [2, "prefer-single"],
+    "no-use-before-define": [2, "nofunc"],
+    "object-curly-spacing": [2, "never"],
+    "react/jsx-indent-props": [2, 4]
+  }
+}
