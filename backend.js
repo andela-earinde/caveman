@@ -1,5 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const webpack = require('webpack');
+const config = require('./webpack.config');
 
 const data = require('./venues.json');
 
@@ -7,6 +9,10 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(require('webpack-dev-middleware')(compiler, {
+  noInfo: true,
+  publicPath: config.output.publicPath
+}));
 
 const updates = {};
 

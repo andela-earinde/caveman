@@ -7,10 +7,12 @@ module.exports = {
   ],
   output: {
     path: './app/js/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/js/'
   },
   module: {
     loaders: [
+      {test: /\.js$/, loader: ['babel'], exclude: /node_modules/}
     ]
   },
   devServer: {
