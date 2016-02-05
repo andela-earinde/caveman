@@ -8,14 +8,36 @@ class Home extends React.Component {
   }
 
   renderVenues(index, key) {
-    return <div key={key}>{this.props.listOfVenues[index].address}</div>;
+    return (
+      <a key={key}
+           className="collection-item caveman-venue-item">
+        <div>
+          NAME: {this.props.listOfVenues[index].name}
+        </div>
+        <span className="venue-item-second">
+          ADDRESS: {this.props.listOfVenues[index].address},
+        </span>&nbsp;
+        <span>
+          {this.props.listOfVenues[index].city},
+        </span>&nbsp;
+        <span>
+          {this.props.listOfVenues[index].country}
+        </span>
+      </a>
+    );
   }
 
   render() {
     return (
       <div className="row">
         <div className="col s12 m8 offset-m2">
-          <div className="card-panel teal">
+          <div className="card-panel teal caveman-header">
+            <span className="caveman-header-first">CAVEMAN</span>
+            <span className="caveman-header-last">List of venues</span>
+          </div>
+        </div>
+        <div className="col s12 m8 offset-m2">
+          <div className="card-panel teal collection caveman-venue-list">
             <ReactList
               itemRenderer={::this.renderVenues}
               length={this.props.listOfVenues.length}

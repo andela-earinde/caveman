@@ -48,9 +48,11 @@
   },
   "devDependencies": {
     "babel-eslint": "^4.1.8",
+    "css-loader": "^0.23.1",
     "eslint": "^1.10.3",
     "eslint-config-airbnb": "^5.0.0",
     "eslint-plugin-react": "^3.16.1",
+    "style-loader": "^0.13.0",
     "webpack-dev-middleware": "^1.5.1",
     "webpack-hot-middleware": "^2.6.4"
   }

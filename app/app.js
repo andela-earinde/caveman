@@ -7,6 +7,8 @@ import HomeContainer from './containers/HomeContainer';
 
 import configureStore from './store/configureStore';
 
+import '../public/css/style.css';
+
 
 const store = configureStore(browserHistory);
 
