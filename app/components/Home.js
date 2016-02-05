@@ -1,14 +1,29 @@
 import React from 'react';
+import ReactList from 'react-list';
 
 class Home extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props)
+  }
+
+  renderVenues(index, key) {
+    return <div key={key}>{this.props.listOfVenues[index].address}</div>;
   }
 
   render() {
-    return <div>Hello world</div>
+    return (
+      <div className="row">
+        <div className="col s12 m8 offset-m2">
+          <div className="card-panel teal">
+            <ReactList
+              itemRenderer={::this.renderVenues}
+              length={this.props.listOfVenues.length}
+              type='uniform'/>
+          </div>
+        </div>
+      </div>
+    )
   }
 }
 

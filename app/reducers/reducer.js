@@ -6,7 +6,12 @@ const initialState  = {
 
 
 const venuesReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case 'DISPLAY_LIST_OF_VENUES':
+      return {...state, listOfVenues: action.venues}
+    default:
+      return state
+  }
 }
 
 export default venuesReducer

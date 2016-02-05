@@ -8,6 +8,12 @@ import Home from '../components/Home';
 
 class HomeContainer extends React.Component {
 
+  componentWillMount() {
+    const {dispatch} = this.props;
+
+    dispatch(fetchListOfVenues())
+  }
+
   render() {
     return <Home {...this.props} />
   }
