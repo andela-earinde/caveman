@@ -17,7 +17,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={HomeContainer}/>
-      <Route path="#/venue/:venueID" component={VenueDetailContainer}/>
+      <Route path="/venue/:venueID" component={VenueDetailContainer}/>
     </Router>
   </Provider>,
   document.getElementById('app')

@@ -26,6 +26,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
+app.get('/venue/:venueID', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
+
 app.get('/api/venues', (req, res) => {
   res.json(data.map(d => Object.assign({}, d, updates[d.id] || {})));
 });

@@ -13,7 +13,7 @@ class Home extends React.Component {
     return (
       <a key={key}
            className="collection-item caveman-venue-item"
-           onClick={() => dispatch(routeActions.push(`#/venue/${this.props.listOfVenues[index].id}`))}>
+           onClick={() => dispatch(routeActions.push(`/venue/${this.props.listOfVenues[index].id}`))}>
         <div>
           NAME: {this.props.listOfVenues[index].name}
         </div>

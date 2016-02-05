@@ -24,3 +24,14 @@ body {
   max-height: 550px;
   overflow: auto;
 }
+
+.venue-detail {
+  position: relative;
+  top: 20px;
+  max-height: 700px;
+  color: #fff;
+}
+
+.venue-detail div{
+  margin-top: 10px;
+}
