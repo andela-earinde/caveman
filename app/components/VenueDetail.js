@@ -50,9 +50,9 @@ class VenueDetail extends React.Component {
         <div className="card-panel teal venue-detail">
           <VenueMapView
             markers={[{
-              postion: {
-                lat: this.venue.lat || 25.0112183,
-                lng: this.venue.lng || 121.52067570000001
+              position: {
+                lat: Number(this.venue.lat) || 25.0112183,
+                lng: Number(this.venue.lng) || 121.52067570000001
               },
               key: this.venue.country || "Taiwan"
             }]}/>
