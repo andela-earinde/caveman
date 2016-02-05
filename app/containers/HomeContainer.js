@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import {fetchListOfVenues} from '../actions/actions';
+
 import Home from '../components/Home';
 
 
@@ -12,7 +14,7 @@ class HomeContainer extends React.Component {
 }
 
 HomeContainer.propTypes = {
-    dispatch: React.PropTypes.func.isRequired,
+  dispatch: React.PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
