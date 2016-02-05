@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactList from 'react-list';
+import { routeActions } from 'react-router-redux'
 
 class Home extends React.Component {
 
@@ -8,9 +9,11 @@ class Home extends React.Component {
   }
 
   renderVenues(index, key) {
+    const {dispatch} = this.props;
     return (
       <a key={key}
-           className="collection-item caveman-venue-item">
+           className="collection-item caveman-venue-item"
+           onClick={() => dispatch(routeActions.push(`#/venue/${this.props.listOfVenues[index].id}`))}>
         <div>
           NAME: {this.props.listOfVenues[index].name}
         </div>
