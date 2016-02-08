@@ -14,10 +14,10 @@ function checkStatus(response) {
 }
 
 
-export function fetchListOfVenues() {
+export function fetchListOfVenues(offset) {
 
   return (dispatch, getState) => {
-    return fetch('http://localhost:3042/api/venues')
+    return fetch(`http://localhost:3042/api/venues/?offset=${offset}`)
         .then(checkStatus)
         .then(response => response.json())
         .then((data) => {

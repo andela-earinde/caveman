@@ -1,14 +1,19 @@
 
 const initialState  = {
   currentVenue: {},
-  listOfVenues: []
+  venuelistDetail: {
+    listOfVenues: [],
+    meta: {}
+  }
 }
 
 
 const venuesReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'DISPLAY_LIST_OF_VENUES':
-      return {...state, listOfVenues: action.venues}
+      let venuelistDetail = {listOfVenues: action.venues.data,
+                             meta: action.venues.meta}
+      return {...state, venuelistDetail}
     default:
       return state
   }

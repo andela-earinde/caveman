@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactList from 'react-list';
-import { routeActions } from 'react-router-redux'
+import ReactPaginate from 'react-paginate';
+import { routeActions } from 'react-router-redux';
 
 class Home extends React.Component {
 
@@ -46,6 +47,18 @@ class Home extends React.Component {
               length={this.props.listOfVenues.length}
               type='uniform'/>
           </div>
+          <div className="card-panel teal collection pagination-container">
+            <ReactPaginate previousLabel={"previous"}
+                           nextLabel={"next"}
+                           breakLabel={<li className="break"><a href="">...</a></li>}
+                           pageNum={ Math.ceil(this.props.totalCountOfVenues / this.props.pageLimit)}
+                           marginPagesDisplayed={2}
+                           pageRangeDisplayed={5}
+                           clickCallback={this.props.handlePageClick}
+                           containerClassName={"pagination"}
+                           subContainerClassName={"pages pagination"}
+                           activeClassName={"active"} />
+            </div>
         </div>
       </div>
     )

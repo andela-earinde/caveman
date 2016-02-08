@@ -1,5 +1,6 @@
 body {
   overflow: hidden;
+  background-color: #F1F1F1;
 }
 
 .caveman-header {
@@ -20,8 +21,8 @@ body {
 
 .caveman-venue-list {
   position: relative;
-  top: 10px;
-  max-height: 550px;
+  top: 1px;
+  max-height: 450px;
   overflow: auto;
 }
 
@@ -34,4 +35,14 @@ body {
 
 .venue-detail div{
   margin-top: 10px;
+}
+
+.pagination-container {
+  color: #fff;
+  position: relative;
+  bottom: 5px;
+}
+
+.pagination-container .pagination {
+  margin: 0 auto;
 }

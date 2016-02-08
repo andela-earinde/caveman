@@ -8,14 +8,32 @@ import Home from '../components/Home';
 
 class HomeContainer extends React.Component {
 
+  constructor(props) {
+    super(props);
+
+    this.handlePageClick = this.handlePageClick.bind(this);
+  }
+
   componentWillMount() {
     const {dispatch} = this.props;
 
-    dispatch(fetchListOfVenues())
+    dispatch(fetchListOfVenues(0))
   }
 
   render() {
-    return <Home {...this.props} />
+    return <Home
+            {...this.props}
+            handlePageClick={this.handlePageClick}/>
+  }
+
+  handlePageClick(data) {
+    const {pageLimit, dispatch} = this.props;
+
+    let selected = data.selected;
+    console.log(pageLimit)
+    let offset = Math.ceil(selected * pageLimit);
+
+    dispatch(fetchListOfVenues(offset))
   }
 }
 
@@ -27,7 +45,9 @@ function mapStateToProps(state) {
   const {venues} = state;
 
   return {
-    listOfVenues: venues.listOfVenues
+    listOfVenues: venues.venuelistDetail.listOfVenues,
+    totalCountOfVenues: venues.venuelistDetail.meta.total_count,
+    pageLimit: venues.venuelistDetail.meta.limit
   }
 }
 

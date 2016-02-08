@@ -13,14 +13,15 @@ class VenueDetailContainer extends React.Component {
   }
 
   componentWillMount() {
-    const {listOfVenues, dispatch} = this.props;
+    const {listOfVenues, dispatch, offset} = this.props;
 
     if (listOfVenues.length === 0) {
-      dispatch(fetchListOfVenues())
+      dispatch(fetchListOfVenues(offset))
     }
   }
 
   render() {
+    console.log(this.props)
     return (
       <VenueDetail {...this.props}/>
     )
@@ -31,7 +32,8 @@ function mapStateToProps(state) {
   const {venues} = state;
 
   return {
-    listOfVenues: venues.listOfVenues
+    listOfVenues: venues.venuelistDetail.listOfVenues,
+    offset: venues.venuelistDetail.meta.offset
   }
 }
 

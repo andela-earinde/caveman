@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const webpack = require('webpack');
@@ -21,7 +23,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const updates = {};
+const PER_PAGE = 100;
 
+// Routes for react router
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
@@ -30,8 +34,27 @@ app.get('/venue/:venueID', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
+
+function getPaginatedItems(data, offset) {
+  return data.slice(offset, offset + PER_PAGE);
+}
+
+// Api routes
 app.get('/api/venues', (req, res) => {
-  res.json(data.map(d => Object.assign({}, d, updates[d.id] || {})));
+  let offset = parseInt(req.query.offset, 10);
+
+  let meta = {
+    offset,
+    limit: PER_PAGE,
+    total_count: data.length
+  }
+
+  let json = {
+    meta,
+    data: getPaginatedItems(data, offset)
+  }
+
+  res.json(json);
 });
 
 app.put('/api/venues/:id', (req, res) => {
