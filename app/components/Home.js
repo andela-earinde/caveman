@@ -10,11 +10,12 @@ class Home extends React.Component {
   }
 
   renderVenues(index, key) {
-    const {dispatch} = this.props;
+    const {dispatch, pageNum} = this.props;
+
     return (
       <a key={key}
            className="collection-item caveman-venue-item"
-           onClick={() => dispatch(routeActions.push(`/venue/${this.props.listOfVenues[index].id}`))}>
+           onClick={() => dispatch(routeActions.push(`/venue/${this.props.listOfVenues[index].id}/?page_num=${pageNum}`))}>
         <div>
           NAME: {this.props.listOfVenues[index].name}
         </div>
@@ -32,6 +33,8 @@ class Home extends React.Component {
   }
 
   render() {
+    const {totalCountOfVenues, pageLimit} = this.props;
+
     return (
       <div className="row">
         <div className="col s12 m8 offset-m2">
@@ -51,7 +54,7 @@ class Home extends React.Component {
             <ReactPaginate previousLabel={"previous"}
                            nextLabel={"next"}
                            breakLabel={<li className="break"><a href="">...</a></li>}
-                           pageNum={ Math.ceil(this.props.totalCountOfVenues / this.props.pageLimit)}
+                           pageNum={Math.ceil(this.props.totalCountOfVenues / this.props.pageLimit)}
                            marginPagesDisplayed={2}
                            pageRangeDisplayed={5}
                            clickCallback={this.props.handlePageClick}

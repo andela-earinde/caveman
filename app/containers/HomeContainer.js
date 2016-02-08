@@ -10,7 +10,7 @@ class HomeContainer extends React.Component {
 
   constructor(props) {
     super(props);
-
+    this.pageNum = 1;
     this.handlePageClick = this.handlePageClick.bind(this);
   }
 
@@ -23,6 +23,7 @@ class HomeContainer extends React.Component {
   render() {
     return <Home
             {...this.props}
+            pageNum={this.pageNum}
             handlePageClick={this.handlePageClick}/>
   }
 
@@ -30,7 +31,7 @@ class HomeContainer extends React.Component {
     const {pageLimit, dispatch} = this.props;
 
     let selected = data.selected;
-    console.log(pageLimit)
+    this.pageNum = selected;
     let offset = Math.ceil(selected * pageLimit);
 
     dispatch(fetchListOfVenues(offset))

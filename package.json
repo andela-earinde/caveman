@@ -35,6 +35,7 @@
     "express": "4.13.3",
     "history": "^1.17.0",
     "react": "^0.14.3",
+    "react-contenteditable": "^1.1.0",
     "react-dom": "0.14.3",
     "react-google-maps": "4.4.1",
     "react-list": "^0.7.13",

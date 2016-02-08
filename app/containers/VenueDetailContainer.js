@@ -13,15 +13,15 @@ class VenueDetailContainer extends React.Component {
   }
 
   componentWillMount() {
-    const {listOfVenues, dispatch, offset} = this.props;
-
+    const {listOfVenues, dispatch, location} = this.props;
+    let offset = Math.ceil((parseInt(location.query.page_num, 10) - 1)  * 100);
+    console.log(offset)
     if (listOfVenues.length === 0) {
       dispatch(fetchListOfVenues(offset))
     }
   }
 
   render() {
-    console.log(this.props)
     return (
       <VenueDetail {...this.props}/>
     )

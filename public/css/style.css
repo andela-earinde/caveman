@@ -44,5 +44,6 @@ body {
 }
 
 .pagination-container .pagination {
+  padding-left: 90px;
   margin: 0 auto;
 }
